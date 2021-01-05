@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   has_many: attendances
   belongs_to :organizer, class_name: "User"
   
-  validates
+  #validates :
 end
