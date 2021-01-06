@@ -1,0 +1,15 @@
+<br><br><br><br><br><br>
+
+<h1><strong>Nom de l'évènement: </strong><%= @event.title %></h1>
+<br>
+<p><strong>L'organisateur: </strong><%= @event.organizer_id %>
+<br>
+<p><strong>Date: </strong><%= @event.start_date %></p>
+<p><strong>Durée: </strong><%= @event.duration %> minutes</p>
+<p><strong>Description: </strong><%= @event.description %></p>
+<p><strong>Prix: </strong><%= @event.price %> €</p>
+<p><strong>Lieux: </strong><%= @event.location %></p>
+
+<p>
+  <a href="<%= events_path %>" class="btn btn-primary">Revenir à l'accueille</a>
+</p>

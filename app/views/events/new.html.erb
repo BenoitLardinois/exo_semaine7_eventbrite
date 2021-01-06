@@ -2,7 +2,30 @@
   <div class="row">
     <div class="col-md-9 offset-md-3">
       <br><br><br><br><br><br>
-      <h1>Voici la vue new de events</h1>
+      <h1>Créer ton évènement</h1>
+      <br><br>
+      <form action="/events" method="post">
+        
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        
+        <div>
+          <p>Le nom de l'évènement: <input type="text" name="event_title"></p>
+          <br>
+          <p>La date: <input type="text" name="event_start_date"></p>
+          <br>
+          <p>La durée (en minutes): <input type="text" name="event_duration"></p>
+          <br>
+          <p>Description: <input type="text" name="event_description"></p>
+          <br>
+          <p>Prix: <input type="text" name="event_price"></p>
+          <p>Lieux: <input type="text" name="event_location"></p>
+          <p>Votre ID (23): <input type="text" name="event_organizer_id"></p>
+        </div>
+        <br><br>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Créé l'évènement</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

@@ -1,29 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-9 offset-md-3">
-      <br><br><br><br><br><br>
-      <% if user_signed_in? %>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-        </li>
-  
-        <li>
-          Voici ton email: <%= current_user.email %>
-        </li>
-  
-        <li>
-          <%= link_to "Edit email / password", edit_user_registration_path %>
-        </li>
-  
-      <% else %>
-        <li>
-          <%= link_to "Sign in", new_user_session_path %>
-        </li>
-  
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-  
-      <% end %>
-    </div>
-  </div>
-</div>
+<br><br><br><br><br><br>
+
+<p>
+  <a href="<%= new_event_path %>" class="btn btn-success">Créer ton évènement ici!</a>
+</p>
+<br><br>
+<% @events.each do |event| %>
+  <h2><strong>Nom de l'évènement: </strong><%= event.title %></h2>
+  <p>
+    <a href="<%= event_path(event.id) %>" class="btn btn-primary">Lire la suite</a>
+  </p>
+<% end %>
+
