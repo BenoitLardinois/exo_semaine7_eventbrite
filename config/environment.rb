@@ -5,11 +5,11 @@ require_relative "application"
 Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  port: 587,
-  address: 'smtp.gmail.com',
-  user_name: ENV['SMTP_USER_NAME'],
-  password: ENV['SMTP_PASSWORD'],
-  domain: 'gmail.com',
-  authentication: :plain,
-  enable_starttls_auto: true
+    :address            => 'smtp.gmail.com',
+    :port               => 587,
+    :domain             => 'gmail.com',
+    :authentication     => :plain,
+    :user_name          => ENV['gmail_username'],
+    :password           => ENV['gmail_password'],
+    :enable_starttls_auto  => true
   }

@@ -1,0 +1,9 @@
+Félécitations <%= @attendance.event.organizer.first_name %>
+
+=========================
+
+Ton évènement a un(e) nouvel(le) inscrit(e) : <%= @attendance.user.first_name %>
+
+Il y a maintenant <%= Attendance.all.length %> participant(e)s ! :D
+
+À très vite pour d'autres bonnes nouvelles !

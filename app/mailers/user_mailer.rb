@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'benoitlardinois@gmail.com'
+  default from: 'benoitlardinois@hotmail.com'
   
   def welcome_email(user)
     @user = user
@@ -7,5 +7,9 @@ class UserMailer < ApplicationMailer
     @url = 'http://monsite.com/login'
     
     mail(to: @user.email, subject: 'Bienvenue chez nous!')
+  end
+  def new_attendance_email(attendance)
+    @attendance = attendance
+    mail(to: @attendance.event.organizer.email, subject: "Nouveau participant à votre évènement!!!")
   end
 end
