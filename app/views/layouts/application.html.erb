@@ -39,22 +39,30 @@
               Profil
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <% if user_signed_in? %>
+              <% if user_signed_in? %>   
                 <li>
-                  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+                  <% if current_user.first_name %>
+                    <%= link_to "#{current_user.first_name}", user_path(current_user.id) %>
+                  <% else %>
+                    <%= link_to "#{current_user.email}", user_path(current_user.id) %>
+                  <% end %>
+                </li>
+              
+                <li>
+                  <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
                 </li>
 
                 <li>
-                  <%= link_to "Edit email / password", edit_user_registration_path %>
+                  <%= link_to "Editer email/mot de passe", edit_user_registration_path %>
                 </li>
 
               <% else %>
                 <li>    
-                  <%= link_to "Sign in", new_user_session_path %>
+                  <%= link_to "Se connecter", new_user_session_path %>
                 </li>
 
                 <li>
-                  <%= link_to "Sign up", new_user_registration_path %>
+                  <%= link_to "Créer son compte", new_user_registration_path %>
                 </li>
               <% end %>
             </div>

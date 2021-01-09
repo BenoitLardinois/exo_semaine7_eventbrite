@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     new_event.description = params[:event_description]
     new_event.price = params[:event_price]
     new_event.location = params[:event_location]
-    new_event.organizer_id = params[:event_organizer_id]
+    new_event.organizer_id = params[:event_organizer_id] 
     
     if new_event.save
       redirect_to events_path
