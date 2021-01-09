@@ -2,10 +2,17 @@
 <h1>Ton profile EventBride</h1>
 <br>
 <p><strong>Ton prénom: </strong><%= @my_user.first_name %></p>
-<p><strong>Ton nom de famille: </strong><%= @my_user.last_name %>
+<br>
+<p><strong>Ton nom de famille: </strong><%= @my_user.last_name %></p>
 <br>
 <p><strong>Ta description de profile: </strong><%= @my_user.description %></p>
+<br>
 <p><strong>Ton Email: </strong><%= @my_user.email %></p>
+<br>
+<p><strong>Tes évènements: </strong></p>
+<% @my_user.organized_events.each do |e| %>
+  <li><%= link_to "#{e.title}", event_path(e.id) %></li>
+<% end %>
 <br><br>
 <p>
   <a href="<%= events_path %>" class="btn btn-primary">Revenir à l'accueille</a>
