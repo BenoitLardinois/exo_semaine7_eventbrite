@@ -2,7 +2,9 @@
 
 <h1><strong>Nom de l'évènement: </strong><%= @event.title %></h1>
 <br>
-<p><strong>ID de l'organisateur: </strong><%= @event.organizer_id %>
+<% if @event.organizer === current_user %><span class="badge badge-info">Vous êtes l'administrateur de cette évènement</span><% end %>
+<br><br>
+<p><strong>Nom l'organisateur: </strong><%= @event.organizer.first_name %> <%= @event.organizer.last_name %>
 <br>
 <p><strong>Date: </strong><%= @event.start_date %></p>
 <p><strong>Durée: </strong><%= @event.duration %> minutes</p>
@@ -10,6 +12,16 @@
 <p><strong>Prix: </strong><%= @event.price %> €</p>
 <p><strong>Lieux: </strong><%= @event.location %></p>
 
+<br><br>
+<% if @event.organizer === current_user %>
+  <h1>Noms des participants:</h1>
+  <% @event.users.each do |user| %>
+    <%= user.first_name %> <%= user.last_name %>
+    <br>
+  <% end %>
+<% end %>
+
+<br><br><br>
 <p>
   <a href="<%= events_path %>" class="btn btn-primary">Revenir à l'accueille</a>
 </p>

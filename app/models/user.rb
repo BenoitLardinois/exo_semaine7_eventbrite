@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   after_create :welcome_send
   
-  has_many :events, through: :attendances
   has_many :attendances
+  has_many :events, through: :attendances
   has_many :organized_events, foreign_key: "organizer_id", class_name: "Event"
   
   def welcome_send

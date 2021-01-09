@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   
+  
   def index
     @events = Event.all
   end
@@ -14,6 +15,7 @@ class EventsController < ApplicationController
   end
   
   def create
+    new_event.organizer = current_user,
     new_event = Event.new
     new_event.id = Event.all.length + 1
     new_event.title = params[:event_title]

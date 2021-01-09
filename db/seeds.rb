@@ -25,7 +25,6 @@ Attendance.destroy_all
 end
 tp User.all
 
-
 10.times do |index|
   Event.create(
   id: index + 1,
@@ -39,3 +38,13 @@ tp User.all
   )
 end
 tp Event.all
+
+10.times do |index|
+  Attendance.create(
+  id: index + 1,
+  stripe_customer_id: Faker::Number.between(from: 10000, to: 20000),
+  user_id: Faker::Number.between(from: 1, to: 10),
+  event_id: Faker::Number.between(from: 1, to: 10)
+  )
+end
+tp Attendance.all
